@@ -100,7 +100,7 @@ def mag_to_color(mag):
 def build_map(df_json, style):
     """Cache the rendered map so filters don't rebuild it from scratch each time."""
     data = pd.read_json(df_json)
-    m = folium.Map(location=[20, 0], zoom_start=2, tiles="CartoDB dark_matter")
+    m = folium.Map(location=[20, 0], zoom_start=2, tiles="CartoDB dark_matter", scrollWheelZoom=False, zoom_control=False)
 
     if style == "Heatmap":
         heat_data = data[['latitude', 'longitude', 'mag']].values.tolist()
